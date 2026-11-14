@@ -14,7 +14,6 @@ import java.util.UUID;
 @AllArgsConstructor
 @Data
 @Table(name = "users")
-
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,10 +27,13 @@ public class User {
 
     @Column(nullable = false)
     private String password_hash;
+
     @Column(nullable = false)
     private String first_name;
+
     @Column(nullable = false)
     private String last_name;
+
     @Column(nullable = false)
     private boolean enabled;
 

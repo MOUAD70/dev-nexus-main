@@ -7,17 +7,18 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "projects")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "projects")
 public class Project {
 
     @Id
@@ -35,6 +36,7 @@ public class Project {
     private int nextTaskNumber;
 
     @Column(nullable = false, updatable = false)
+    @CreationTimestamp
     private LocalDateTime createdAt;
 
     public void update(String name, String description) {
@@ -60,7 +62,7 @@ public class Project {
         return this.members.stream().anyMatch(m -> m.getUser().equals(user));
     }
 
-    public synchronized int allocateTaskNumber() {
+    public int allocateTaskNumber() {
         return ++this.nextTaskNumber;
     }
 

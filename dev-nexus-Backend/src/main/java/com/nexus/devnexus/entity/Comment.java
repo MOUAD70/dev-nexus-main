@@ -2,10 +2,7 @@ package com.nexus.devnexus.entity;
 
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -15,7 +12,8 @@ import java.util.UUID;
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-@Data
+@Getter
+@Setter
 @Table(name = "comments")
 public class Comment {
 
@@ -32,10 +30,12 @@ public class Comment {
     @CreationTimestamp
     @Column(nullable = false, updatable = false)
     private LocalDateTime created_at;
+
     @UpdateTimestamp
-    @Column(nullable = false, updatable = false)
+    @Column(nullable = false)
     private LocalDateTime updated_at;
-        @Column(nullable = false, updatable = false)
+
+    @Column
     private LocalDateTime deleted_at;
 
     @ManyToOne(fetch = FetchType.LAZY)
