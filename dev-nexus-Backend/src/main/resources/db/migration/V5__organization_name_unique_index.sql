@@ -1,0 +1,1 @@
+CREATE UNIQUE INDEX uq_organizations_name_lower ON organizations (lower(name));
