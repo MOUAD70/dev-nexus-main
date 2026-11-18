@@ -1,4 +1,4 @@
-package com.nexus.devnexus.enums.repository;
+package com.nexus.devnexus.repository;
 
 import com.nexus.devnexus.entity.Role;
 import com.nexus.devnexus.enums.RoleName;
