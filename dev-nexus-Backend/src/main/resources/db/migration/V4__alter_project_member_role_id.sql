@@ -1,0 +1,2 @@
+ALTER TABLE project_members
+ALTER COLUMN role_id TYPE BIGINT;
